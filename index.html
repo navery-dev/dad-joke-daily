@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Joke of the Day</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dad-emoji {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: wave 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .date {
+            color: #764ba2;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .joke-container {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .joke {
+            font-size: 1.4em;
+            color: #333;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .punchline {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #667eea;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .joke {
+                font-size: 1.2em;
+            }
+
+            .dad-emoji {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dad Joke of the Day</h1>
+        <div class="dad-emoji">👨</div>
+        <div class="date" id="currentDate"></div>
+        <div class="joke-container">
+            <div class="joke" id="joke"></div>
+        </div>
+        <div class="footer">
+            Come back tomorrow for a new joke! 😄
+        </div>
+    </div>
+
+    <script>
+        // Array of dad jokes
+        const dadJokes = [
+            "Why don't scientists trust atoms? Because they make up everything!",
+            "I'm reading a book about anti-gravity. It's impossible to put down!",
+            "Why don't eggs tell jokes? They'd crack each other up!",
+            "What do you call a fake noodle? An impasta!",
+            "Why did the scarecrow win an award? He was outstanding in his field!",
+            "I used to hate facial hair, but then it grew on me.",
+            "What do you call a bear with no teeth? A gummy bear!",
+            "Why don't skeletons fight each other? They don't have the guts.",
+            "What's the best thing about Switzerland? I don't know, but the flag is a big plus.",
+            "Did you hear about the restaurant on the moon? Great food, no atmosphere.",
+            "Why did the coffee file a police report? It got mugged!",
+            "How does a penguin build its house? Igloos it together!",
+            "What do you call cheese that isn't yours? Nacho cheese!",
+            "Why couldn't the bicycle stand up by itself? It was two tired!",
+            "What did the ocean say to the beach? Nothing, it just waved.",
+            "Why do chicken coops only have two doors? Because if they had four, they'd be chicken sedans!",
+            "What's orange and sounds like a parrot? A carrot!",
+            "How do you organize a space party? You planet!",
+            "Why did the math book look so sad? Because it had too many problems.",
+            "What do you call a pile of cats? A meowtain!",
+            "Why don't oysters donate to charity? Because they're shellfish!",
+            "What did the grape do when he got stepped on? He let out a little wine!",
+            "Why can't you hear a pterodactyl go to the bathroom? Because the 'P' is silent!",
+            "What do you call a dog magician? A labracadabrador!",
+            "Why did the golfer bring two pairs of pants? In case he got a hole in one!",
+            "How do you make a tissue dance? Put a little boogie in it!",
+            "What's brown and sticky? A stick!",
+            "Why don't programmers like nature? It has too many bugs.",
+            "What do you call a belt made of watches? A waist of time!",
+            "Why did the tomato turn red? Because it saw the salad dressing!",
+            "What do you call a fish wearing a bowtie? Sofishticated!",
+            "Why did the cookie go to the doctor? Because it felt crumbly!",
+            "What's a computer's favorite snack? Computer chips!",
+            "Why don't melons get married? Because they cantaloupe!",
+            "What did one wall say to the other? I'll meet you at the corner!",
+            "Why did the stadium get hot after the game? All the fans left!",
+            "What do you call a sleeping bull? A bulldozer!",
+            "Why don't crabs give to charity? Because they're shellfish!",
+            "What did the left eye say to the right eye? Between you and me, something smells!",
+            "Why did the picture go to jail? Because it was framed!",
+            "What do you call a snowman with a six-pack? An abdominal snowman!",
+            "Why did the bicycle fall over? Because it was two-tired!",
+            "What do you call a factory that makes okay products? A satisfactory!",
+            "Why don't some couples go to the gym? Because some relationships don't work out!",
+            "What did the janitor say when he jumped out of the closet? Supplies!",
+            "Why did the man put his money in the freezer? He wanted cold hard cash!",
+            "What do you call a boomerang that doesn't come back? A stick!",
+            "Why can't Monday lift Saturday? It's a weak day!",
+            "What do you call a lazy kangaroo? A pouch potato!",
+            "Why did the kid throw the clock out the window? To see time fly!"
+        ];
+
+        // Function to get the number of days since a reference date
+        function getDaysSinceEpoch() {
+            const now = new Date();
+            // Set to midnight to ensure consistency throughout the day
+            now.setHours(0, 0, 0, 0);
+            // Use January 1, 2024 as reference date
+            const epoch = new Date('2024-01-01');
+            epoch.setHours(0, 0, 0, 0);
+            const diffTime = Math.abs(now - epoch);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        // Function to get today's joke
+        function getTodaysJoke() {
+            const dayIndex = getDaysSinceEpoch();
+            const jokeIndex = dayIndex % dadJokes.length;
+            return dadJokes[jokeIndex];
+        }
+
+        // Function to format the date
+        function formatDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date().toLocaleDateString('en-US', options);
+        }
+
+        // Display the joke and date
+        document.getElementById('joke').textContent = getTodaysJoke();
+        document.getElementById('currentDate').textContent = formatDate();
+
+        // Update at midnight
+        function scheduleNextUpdate() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            const timeUntilMidnight = tomorrow - now;
+
+            setTimeout(() => {
+                document.getElementById('joke').textContent = getTodaysJoke();
+                document.getElementById('currentDate').textContent = formatDate();
+                scheduleNextUpdate(); // Schedule next update
+            }, timeUntilMidnight);
+        }
+
+        scheduleNextUpdate();
+    </script>
+</body>
+</html>
