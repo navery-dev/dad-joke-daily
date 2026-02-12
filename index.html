@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dad Joke of the Day</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨</text></svg>">
     <style>
         * {
             margin: 0;
@@ -89,6 +90,26 @@
             border-top: 2px dashed #667eea;
         }
 
+        .falling-emoji {
+            position: fixed;
+            font-size: 2em;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fall linear forwards;
+            opacity: 0.9;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 25px;
@@ -104,6 +125,10 @@
 
             .dad-emoji {
                 font-size: 3em;
+            }
+
+            .falling-emoji {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -173,7 +198,104 @@
             "What do you call a boomerang that doesn't come back? A stick!",
             "Why can't Monday lift Saturday? It's a weak day!",
             "What do you call a lazy kangaroo? A pouch potato!",
-            "Why did the kid throw the clock out the window? To see time fly!"
+            "Why did the kid throw the clock out the window? To see time fly!",
+            "Why did the sun go to school? To get brighter!",
+            "What do you call an alligator in a vest? An investigator!",
+            "How do you cut the ocean in half? With a sea-saw!",
+            "Why don't elephants use computers? They're afraid of the mouse!",
+            "What kind of tree fits in your hand? A palm tree!",
+            "Why was the computer cold? It left its Windows open!",
+            "Why don't mountains ever get cold? They wear snow caps!",
+            "What do you call a sleeping dinosaur? A dino-snore!",
+            "What did one raindrop say to the other? Two's company, three's a cloud!",
+            "Why don't ants ever get sick? Because they have tiny ant-ibodies!",
+            "Why did the banana go to the doctor? It wasn't peeling well!",
+            "How does a scientist freshen their breath? With experi-mints!",
+            "What do you call a fish with no eyes? Fsh!",
+            "Why did the mushroom go to the party? Because he was a fungi!",
+            "Why do cows have hooves instead of feet? Because they lactose!",
+            "What did the smartphone say to the laptop? You're not my type!",
+            "Why did the donut go to the dentist? It needed a filling!",
+            "What do you call a pig that does karate? A pork chop!",
+            "What do you call cheese by itself? Provolone!",
+            "Why don't sharks eat clownfish? Because they taste funny!",
+            "Why did the robot go on vacation? To recharge its batteries!",
+            "What's a cat's favorite color? Purr-ple!",
+            "What's a computer's favorite beat? An algorithm!",
+            "Why did the chicken join a band? Because it had the drumsticks!",
+            "Why did the PowerPoint presentation cross the road? To get to the other slide!",
+            "Why don't tennis players ever get married? Because love means nothing to them!",
+            "What's a ghost's favorite exercise? Dead lifts!",
+            "Why did the football coach go to the bank? To get his quarterback!",
+            "Why did the student eat his homework? Because the teacher said it was a piece of cake!",
+            "What did the pencil say to the paper? I dot my i's on you!",
+            "What's the king of all school supplies? The ruler!",
+            "Why did the teacher wear sunglasses? Because her students were so bright!",
+            "Why did the librarian get kicked off the plane? Because it was overbooked!",
+            "Why did the musician get locked out? He had the wrong key!",
+            "What's Beethoven's favorite fruit? Ba-na-na-naaa!",
+            "Why did the piano break up with the accordion? There were too many strings attached!",
+            "What kind of music do mummies listen to? Wrap music!",
+            "Why couldn't the leopard play hide and seek? Because he was always spotted!",
+            "Why did the astronaut break up with his girlfriend? He needed space!",
+            "What do you call a tick on the moon? A luna-tick!",
+            "Why didn't the sun go to college? Because it already had a million degrees!",
+            "What time is it when you have to go to the dentist? Tooth-hurty!",
+            "Why did the nose feel sad? It was tired of being picked on!",
+            "Why did the skeleton go to the party alone? He had no body to go with!",
+            "What do you call a dentist who doesn't like tea? Denis!",
+            "What do you call a train that sneezes? Achoo-choo train!",
+            "Why do scuba divers fall backwards off the boat? Because if they fell forward, they'd still be in the boat!",
+            "What did the traffic light say to the car? Don't look! I'm about to change!",
+            "Why did the car get a flat tire? Because there was a fork in the road!",
+            "What do you call a can opener that doesn't work? A can't opener!",
+            "What did the zero say to the eight? Nice belt!",
+            "Why did the Oreo go to the dentist? It lost its filling!",
+            "What do you call a group of unorganized cats? A cat-astrophe!",
+            "Why don't scientists trust stairs? Because they're always up to something!",
+            "What do you call a parade of rabbits hopping backwards? A receding hare-line!",
+            "What do you call a dinosaur that crashes his car? Tyrannosaurus Wrecks!",
+            "What did the buffalo say when his son left? Bison!",
+            "Why do bees have sticky hair? Because they use honeycombs!",
+            "Why was six afraid of seven? Because seven eight nine!",
+            "What do you call birds that stick together? Vel-crows!",
+            "Why couldn't the pirate play cards? Because he was sitting on the deck!",
+            "What do you call a bear in the rain? A drizzly bear!",
+            "Why did the cookie cry? Because his mother was a wafer so long!",
+            "What's a skeleton's least favorite room? The living room!",
+            "Why did the golfer bring an extra pair of socks? In case he got a hole in one!",
+            "What do you call a magical dog? A labracadabrador!",
+            "Why did the coffee go to the police? It got mugged!",
+            "What do you call a snowman in July? A puddle!",
+            "Why did the belt go to jail? It held up a pair of pants!",
+            "What do you call a seagull that flies over the bay? A bagel!",
+            "Why did the math teacher open a window? To help the problems air out!",
+            "What do you call a cow with no legs? Ground beef!",
+            "Why did the tree go to the barber? It needed a trim!",
+            "What do you call a rabbit with fleas? Bugs Bunny!",
+            "Why did the phone wear glasses? It lost its contacts!",
+            "What do you call a duck that gets all A's? A wise quacker!",
+            "Why did the melon jump into the lake? It wanted to be a watermelon!",
+            "What do you call a bear with no ears? B!",
+            "Why did the computer go to therapy? It had too many bytes of emotional baggage!",
+            "What do you call a line of rabbits walking backwards? A receding hareline!",
+            "Why did the cookie go to school? To become a smart cookie!",
+            "What do you call a sleeping pizza? A piZZZa!",
+            "Why did the tomato blush? It saw the salad dressing!",
+            "What do you call a dinosaur with an extensive vocabulary? A thesaurus!",
+            "Why did the gym close down? It just didn't work out!",
+            "What do you call a fly without wings? A walk!",
+            "Why did the smartphone need glasses? It lost all its contacts!",
+            "What do you call a cow during an earthquake? A milkshake!",
+            "Why did the bicycle take a nap? It was two-tired!",
+            "What do you call a sheep with no legs? A cloud!",
+            "Why did the orange stop rolling down the hill? It ran out of juice!",
+            "What do you call a potato wearing glasses? A spec-tater!",
+            "Why did the clock get kicked out of class? It tocked too much!",
+            "What do you call a boomerang that doesn't work? A stick!",
+            "Why did the calendar look so popular? It had a lot of dates!",
+            "What do you call a fancy fish? So-fish-ticated!",
+            "Why did the baker go to therapy? He kneaded it!"
         ];
 
         // Function to get the number of days since a reference date
@@ -189,6 +311,90 @@
             return diffDays;
         }
 
+        function getThanksgivingDate(year) {
+            // Thanksgiving is the 4th Thursday of November
+            const november = new Date(year, 10, 1); // Month 10 = November
+            const firstDay = november.getDay(); // 0 = Sunday, 4 = Thursday
+            
+            // Calculate days until first Thursday
+            const daysUntilThursday = (4 - firstDay + 7) % 7;
+            const firstThursday = 1 + daysUntilThursday;
+            const fourthThursday = firstThursday + 21; // Add 3 weeks
+            
+            return fourthThursday;
+        }
+
+        function getFathersDayDate(year) {
+            // Father's Day is the 3rd Sunday of June
+            const june = new Date(year, 5, 1); // Month 5 = June
+            const firstDay = june.getDay(); // 0 = Sunday
+            
+            // Calculate days until first Sunday
+            const daysUntilSunday = (7 - firstDay) % 7;
+            const firstSunday = 1 + daysUntilSunday;
+            const thirdSunday = firstSunday + 14; // Add 2 weeks
+            
+            return thirdSunday;
+        }
+        
+        function checkSpecialDates(){
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            const year = today.getFullYear();
+
+            //valentines day
+            if (month === 2 && day === 14){
+                return {
+                    message: "Happy Valentine's Day! Why did the dad fall in love? Because she was pun-derful!",
+                    emojis: ['💕', '❤️', '💖', '💝', '💗']
+                };
+            }
+            //birthday
+            else if (month === 4 && day === 24){
+                return {
+                    message: "Happy Birthday! What did the dad say on his birthday? I'm not old, I'm vintage!",
+                    emojis: ['🎉', '🎁', '🎈', '🎊']
+                };
+            }
+            //fathers day
+            else if (month === 6 && day === getFathersDayDate(year)){
+                return {
+                    message: "Happy Father's Day! This whole page is dedicated to you, Dad!",
+                    emojis: ['👔', '👨', '🎩', '👞', '💼']
+                };
+            }
+            //4th of july
+            else if (month === 7 && day === 4){
+                return {
+                    message: "Happy 4th of July! What's red, white, blue, and funny? A dad joke on Independence Day!",
+                    emojis: ['🇺🇸', '🎆', '🎇', '✨', '🗽']
+                };
+            }
+            //thanksgiving
+            else if (month === 11 && day === getThanksgivingDate(year)){
+                return {
+                    message: "Happy Thanksgiving! What do you call a running turkey? Fast food!",
+                    emojis: ['🦃', '🍂', '🌽', '🥧', '🍁']
+                };
+            }
+            //christmas
+            else if (month === 12 && day === 25){
+                return {
+                    message: "Merry Christmas! Why is Christmas just like a day at the office? You do all the work and the fat guy in the suit gets all the credit!",
+                    emojis: ['🎄', '🎅', '❄️', '⛄', '🎁']
+                };
+            }
+            //new years
+            else if (month === 1 && day === 1){
+                return {
+                    message: "Happy New Year! What's a New Year's resolution? Something that goes in one year and out the other!",
+                    emojis: ['🎊', '🎉', '🥳', '🍾', '✨']
+                };
+            }
+            return null; //not a special date
+        }
+
         // Function to get today's joke
         function getTodaysJoke() {
             const dayIndex = getDaysSinceEpoch();
@@ -202,8 +408,57 @@
             return new Date().toLocaleDateString('en-US', options);
         }
 
+        // Function to create falling emojis
+        function createFallingEmojis(emojis, duration = 10000) {
+            const emojiCount = 30; // Number of emojis to create
+            const interval = 300; // Time between each emoji spawn (ms)
+            let created = 0;
+
+            const emojiInterval = setInterval(() => {
+                if (created >= emojiCount) {
+                    clearInterval(emojiInterval);
+                    return;
+                }
+
+                const emoji = document.createElement('div');
+                emoji.className = 'falling-emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+                // Random horizontal position
+                emoji.style.left = Math.random() * 100 + 'vw';
+                // Start from top of screen (above viewport)
+                emoji.style.top = '-100px';
+
+                // Random fall duration (3-6 seconds)
+                const fallDuration = 3 + Math.random() * 3;
+                emoji.style.animationDuration = fallDuration + 's';
+
+                document.body.appendChild(emoji);
+
+                // Remove emoji after animation completes
+                setTimeout(() => {
+                    emoji.remove();
+                }, fallDuration * 1000);
+
+                created++;
+            }, interval);
+
+            // Stop creating new emojis after the specified duration
+            setTimeout(() => {
+                clearInterval(emojiInterval);
+            }, duration);
+        }
+
         // Display the joke and date
-        document.getElementById('joke').textContent = getTodaysJoke();
+        const specialDate = checkSpecialDates();
+        if (specialDate) {
+            document.getElementById('joke').textContent = specialDate.message;
+            // Trigger falling emojis animation (runs for 10 seconds)
+            createFallingEmojis(specialDate.emojis, 10000);
+        }
+        else{
+            document.getElementById('joke').textContent = getTodaysJoke();
+        }
         document.getElementById('currentDate').textContent = formatDate();
 
         // Update at midnight
